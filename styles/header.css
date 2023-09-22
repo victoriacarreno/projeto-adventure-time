@@ -1,0 +1,79 @@
+header { /*colocar os itens do header um ao lado do outro*/
+    display: flex;
+    align-items: center;
+    column-gap: 64px;
+
+    width: 100%;
+    max-width: 1440px; /*nao passa desse tamanho de largura*/
+    padding-top: 24px;
+}
+
+header img {
+    width: 70px;
+    height: auto;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    column-gap: 48px;
+
+    list-style: none;
+}
+
+.navigation-link {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    position: relative; /*para o ::after ficar relativo ao li*/
+}
+
+.navigation-link:hover {
+    color: var(--blue);
+}
+
+.navigation-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+
+    width: 60%;
+    height: 1px;
+    background: var(--blue);
+/*para o risco abaixo aparecer da direita p esquerda*/
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s;
+}
+
+.navigation-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.4s;
+}
+
+.navigation-social {
+    margin-left: auto; /*joga pra direita*/
+
+/*colocar os elementos um ao lado do outro*/
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+}
+
+.navigation-social svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+
+    transition: all 0.4s;
+}
+
+.navigation-social svg:hover { /*ao passar mouse os icones subam um pouco*/
+    opacity: 100%;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
